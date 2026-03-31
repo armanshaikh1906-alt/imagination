@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagination | Unique Gifts for Every Special Moment</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        /* CSS VARIABLES FOR THEMING */
+        :root {
+            --primary-color: #ff9a9e; /* Soft Pink */
+            --secondary-color: #fecfef; /* Light Pink */
+            --accent-color: #a18cd1; /* Soft Purple */
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-color: #fdfbfb;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        /* RESET & BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* LOADING ANIMATION */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--secondary-color);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-img {
+            max-height: 40px; /* Keeps the logo size consistent with the navbar */
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container input {
+            padding: 0.5rem 1rem 0.5rem 2.5rem;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+            font-size: 0.9rem;
+            width: 200px;
+            transition: var(--transition);
+        }
+
+        .search-container input:focus {
+            border-color: var(--primary-color);
+            width: 250px;
+            box-shadow: 0 0 10px rgba(255, 154, 158, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 10px;
+            color: var(--text-light);
+            font-size: 1.2rem;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 5%;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, rgba(253,251,251,1) 100%);
+            padding-top: 80px; /* Offset for header */
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: -webkit-linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-inline: auto;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(255, 154, 158, 0.4);
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 154, 158, 0.6);
+        }
+
+        /* CATEGORIES SECTION */
+        .categories {
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+        }
+
+        .category-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.5rem;
+            background-color: var(--white);
+            border: 2px solid var(--secondary-color);
+            color: var(--text-dark);
+            border-radius: 25px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* PRODUCTS SECTION */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2.5rem;
+            padding: 0 5% 5rem;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column; /* Ensures vertical stacking (image top, text bottom) */
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .img-container {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            background-color: #fdfbfb; /* Background color behind the image */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Fills the box perfectly. (Change to 'contain' if images cut off) */
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            text-align: center;
+            flex-grow: 1; /* Ensures text area fills the bottom space evenly */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .product-category {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            padding: 3rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .footer-col p {
+            color: #ccc;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            border: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 900px) {
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+                transform: translateY(-150%);
+                transition: var(--transition);
+                opacity: 0;
+            }
+
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                gap: 1.5rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .search-container {
+                display: none; /* Hide search in header on very small screens, keep it in menu if needed, but for simplicity hiding here */
+            }
+
+            .search-container.mobile-search {
+                display: flex;
+                margin: 0 auto 1.5rem;
+                width: 80%;
+            }
+
+            .search-container.mobile-search input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Animation -->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <a href="#" class="logo">
+            <img src="https://i.postimg.cc/C1s5LdF8/Screenshot-2026-0331-193218.png" alt="Imagination Logo" class="logo-img">
+        </a>
+        
+        <nav id="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <!-- Mobile Search Bar (shows only on mobile nav) -->
+            <div class="search-container mobile-search" style="display: none;">
+                <i class="ph ph-magnifying-glass search-icon"></i>
+                <input type="text" id="mobileSearchInput" placeholder="Search gifts...">
+            </div>
+        </nav>
+
+        <!-- Desktop Search Bar -->
+        <div class="search-container" id="desktopSearch">
+            <i class="ph ph-magnifying-glass search-icon"></i>
+            <input type="text" id="searchInput" placeholder="Search gifts...">
+        </div>
+
+        <div class="mobile-menu-btn" id="menuBtn">
+            <i class="ph ph-list"></i>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Unique Gifts for Every Special Moment 🎁</h1>
+                <p>Make your loved ones smile with imagination. Discover our curated collection of personalized and thoughtful gifts.</p>
+                <a href="#categories" class="btn">Explore Products</a>
+            </div>
+        </section>
+
+        <!-- Categories & Products Section -->
+        <section id="categories" class="categories">
+            <h2 class="section-title">Shop by Category</h2>
+            
+            <div class="category-filters" id="filterContainer">
+                <button class="filter-btn active" data-filter="All">All</button>
+                <button class="filter-btn" data-filter="Birthday Gifts">Birthday Gifts</button>
+                <button class="filter-btn" data-filter="Anniversary Gifts">Anniversary Gifts</button>
+                <button class="filter-btn" data-filter="Customized Gifts">Customized Gifts</button>
+                <button class="filter-btn" data-filter="Home Decor">Home Decor</button>
+                <button class="filter-btn" data-filter="Surprise Boxes">Surprise Boxes</button>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="products-grid" id="productGrid">
+                <!-- Products will be injected here via JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Imagination</h3>
+                <p>Spreading joy through unique, thoughtful, and personalized gifts since 2026.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/imagination_india?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" title="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="PASTE_WHATSAPP_LINK_HERE" title="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
+                    <a href="PASTE_FACEBOOK_LINK_HERE" title="Facebook"><i class="ph ph-facebook-logo"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <p><i class="ph ph-map-pin"></i> near prajapti ashram, opp. kadiawad, Madhumati Colony, Navsari, Gujarat 396445, India</p>
+                <p><i class="ph ph-phone"></i> 98253 20857</p>
+                <p><i class="ph ph-envelope"></i> - </p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Find Us</h3>
+                <div class="map-container">
+                    <!-- Placeholder Map -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3726.0623455351865!2d72.92930644033304!3d20.950011290557978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0f7c12d0cb8c9%3A0x52b6e571a1e830e1!2sImagination!5e0!3m2!1sen!2snl!4v1774978547836!5m2!1sen!2snl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Imagination Gift Shop. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // 1. PRODUCT DATA (Mock Database)
+        const products = [
+            { id: 1, name: "GIFT BOX", category: "Birthday Gifts", img: "https://i.postimg.cc/XY1DmgFT/Screenshot-2026-0331-193242.png" },
+            { id: 2, name: "Black Showpiece", category: "Customized Gifts", img: "https://i.postimg.cc/9Fkcty0r/Screenshot-2026-0331-193304.png" },
+            { id: 3, name: "Chocolate flower", category: "Anniversary Gifts", img: "https://i.postimg.cc/G2fXS3yg/Screenshot-2026-0331-193328.png" },
+            { id: 4, name: "GIFT BOX", category: "Birthday Gifts", img: "https://i.postimg.cc/XY1DmgFT/Screenshot-2026-0331-193242.png" },
+            { id: 5, name: "Black Showpiece", category: "Customized Gifts", img: "https://i.postimg.cc/9Fkcty0r/Screenshot-2026-0331-193304.png" },
+            { id: 6, name: "Chocolate flower", category: "Anniversary Gifts", img: "https://i.postimg.cc/G2fXS3yg/Screenshot-2026-0331-193328.png" },
+
+            
+        ];
+
+        // 2. DOM ELEMENTS
+        const productGrid = document.getElementById('productGrid');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const searchInput = document.getElementById('searchInput');
+        const mobileSearchInput = document.getElementById('mobileSearchInput');
+        const menuBtn = document.getElementById('menuBtn');
+        const navbar = document.getElementById('navbar');
+        const loader = document.getElementById('loader');
+
+        // 3. RENDER PRODUCTS FUNCTION
+        function renderProducts(productsToRender) {
+            productGrid.innerHTML = ''; // Clear current grid
+
+            if (productsToRender.length === 0) {
+                productGrid.innerHTML = '<div class="no-results">No gifts found matching your criteria. Try another search! 🎁</div>';
+                return;
+            }
+
+            productsToRender.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div class="img-container">
+                        <!-- Added 'onerror' so if your URL breaks, it shows a placeholder instead of going invisible -->
+                        <img src="${product.img}" alt="${product.name}" class="product-img" loading="lazy" onerror="this.src='https://placehold.co/500x250/fecfef/333333?text=Image+Error'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">${product.category}</span>
+                        <h3 class="product-name">${product.name}</h3>
+                    </div>
+                `;
+                productGrid.appendChild(card);
+            });
+        }
+
+        // 4. FILTERING FUNCTIONALITY (Categories)
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const category = btn.getAttribute('data-filter');
+                
+                // Clear search inputs when changing category
+                searchInput.value = '';
+                if(mobileSearchInput) mobileSearchInput.value = '';
+
+                if (category === 'All') {
+                    renderProducts(products);
+                } else {
+                    const filtered = products.filter(product => product.category === category);
+                    renderProducts(filtered);
+                }
+            });
+        });
+
+        // 5. LIVE SEARCH FUNCTIONALITY
+        function handleSearch(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            // Reset category filters to 'All' visually
+            filterBtns.forEach(b => b.classList.remove('active'));
+            document.querySelector('[data-filter="All"]').classList.add('active');
+
+            const filtered = products.filter(product => 
+                product.name.toLowerCase().includes(searchTerm) || 
+                product.category.toLowerCase().includes(searchTerm)
+            );
+            
+            renderProducts(filtered);
+            
+            // Sync both search inputs if on desktop/mobile boundary
+            if(e.target === searchInput && mobileSearchInput) mobileSearchInput.value = searchTerm;
+            if(e.target === mobileSearchInput) searchInput.value = searchTerm;
+        }
+
+        searchInput.addEventListener('input', handleSearch);
+        if(mobileSearchInput) mobileSearchInput.addEventListener('input', handleSearch);
+
+        // 6. MOBILE MENU TOGGLE
+        menuBtn.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+            const icon = menuBtn.querySelector('i');
+            if (navbar.classList.contains('active')) {
+                icon.classList.replace('ph-list', 'ph-x');
+                document.querySelector('.mobile-search').style.display = 'flex';
+            } else {
+                icon.classList.replace('ph-x', 'ph-list');
+                document.querySelector('.mobile-search').style.display = 'none';
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('active');
+                menuBtn.querySelector('i').classList.replace('ph-x', 'ph-list');
+            });
+        });
+
+        // 7. INITIALIZE PAGE
+        window.addEventListener('load', () => {
+            // Render all products initially
+            renderProducts(products);
+            
+            // Remove Loading Screen
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 800); // Artificial delay to show the nice animation
+        });
+
+    </script>
+</body>
+</html>
